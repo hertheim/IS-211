@@ -33,21 +33,27 @@ public class LinkedList {
         size++;
     }
 
-        public int size() {
-            return size;
-        }
-        public void displayHead() {
-            System.out.println(head.getData());
-        }
-        public void displayTail() {
-            System.out.println(tail.getData());
-        }
-        public void printLinkedList() {
-            Node current = head;
-            while(current != null){
-                System.out.println(current.getData());
-                current = current.getNextNode();
+    public <E> void remove(E data) {
+        Node current = head;
+        while(current != null){
+            if(current.getData().equals(data)){
+
             }
+            current = current.getNextNode();
+        }
+        size--;
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public void printLinkedList() {
+        Node current = head;
+        while(current != null){
+            System.out.println(current.getData());
+            current = current.getNextNode();
+        }
     }
 }
 
