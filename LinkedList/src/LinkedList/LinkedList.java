@@ -9,11 +9,11 @@ public class LinkedList {
         Node<E> newNode = new Node<E>();
         newNode.setData(data);
 
-        if(head == null) {
+        if(tail == null) {
             head = newNode;
         }else {
+            newNode.setPrevNode(tail);
             tail.setNextNode(newNode);
-            tail.setPrevNode(newNode);
         }
         tail = newNode;
         size++;
@@ -35,13 +35,31 @@ public class LinkedList {
 
     public <E> void remove(E data) {
         Node current = head;
+        if(head == null) {
+            System.out.println("There are no elements in the list.");
+        }
         while(current != null){
             if(current.getData().equals(data)){
-
+                if(size == 1){
+                    head = null;
+                    tail = null;
+                }else if(current == head) {
+                    head.getNextNode().setPrevNode(null);
+                    head = head.getNextNode();
+                    size --;
+                }else if(current == tail){
+                    tail.getPrevNode().setNextNode(null);
+                    tail = tail.getPrevNode();
+                    size --;
+                }else{
+                    current.getPrevNode().setNextNode(current.getNextNode());
+                    current.getNextNode().setPrevNode(current.getPrevNode());
+                    size--;
+                }
+                break;
             }
             current = current.getNextNode();
         }
-        size--;
     }
 
     public int size() {

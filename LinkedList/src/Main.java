@@ -9,6 +9,9 @@ public class Main {
         }
         test.addLast("Last");
         test.addFirst("First");
+        test.remove("First");
+        test.remove(40);
+        test.remove("Last");
         test.printLinkedList();
     }
 }
