@@ -62,6 +62,23 @@ public class LinkedList {
         }
     }
 
+    public Node getByID(int index){
+            Node current = null;
+            Node tailSeeker = head;
+            int count = 0;
+            while (tailSeeker != null) {
+                tailSeeker = tailSeeker.getNextNode();
+                if (count <= index) {
+                    if (current == null) {
+                        current = head;
+                    }
+                    current = current.getNextNode();
+                }
+                count++;
+            }
+            return current;
+    }
+
     public int size() {
         return size;
     }
