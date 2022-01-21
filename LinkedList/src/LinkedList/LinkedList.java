@@ -62,7 +62,7 @@ public class LinkedList {
         }
     }
 
-    public Node getByID(int index){
+    public Node getByIndex(int index){
             Node current = null;
             Node tailSeeker = head;
             int count = 0;

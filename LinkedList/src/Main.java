@@ -13,6 +13,6 @@ public class Main {
         test.remove(40);
         test.remove("Last");
         test.printLinkedList();
-        System.out.println(test.getByID(4).getData());
+        System.out.println(test.getByIndex(4).getData());
     }
 }
